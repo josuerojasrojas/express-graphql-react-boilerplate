@@ -1,11 +1,17 @@
 import React from 'react';
 import './App.css';
+import { ApolloProvider } from '@apollo/react-hooks';
+import QueryExample from 'components/QueryExample';
+import client from './ApolloClient'
 
-function App() {
+
+const App = () => {
   return (
+    <ApolloProvider client={client}>
     <div>
-      Hello
+      <QueryExample/>
     </div>
+    </ApolloProvider>
   );
 }
 

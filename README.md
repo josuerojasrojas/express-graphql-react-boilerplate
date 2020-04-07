@@ -32,14 +32,15 @@ yarn start:client
 
 ##### TODO:
 I didn't want to start a board for this just cause of lazyness.  
-- add sequelize
-- add apollo client
-- add google oath
-    - client add google login
-    - server add query for google token
-- refactor index.js for server / seperate files 
-- heroku setup
-    - add start script for heroku
-    - add build script for react on root package.json
-    - setup index in server to serve react build
-- add instruction for cloning
+- [ ] add sequelize
+- [ ] add google oath
+    - [ ] client add google login
+    - [ ] server add query for google token
+    - [ ] add routes for login in client (react-router)
+- [ ] refactor index.js for server / seperate files 
+- [ ] heroku setup
+    - [ ] add start script for heroku
+    - [ ] add build script for react on root package.json
+    - [ ] setup index in server to serve react build
+- [ ] add instruction for cloning
+- [ ] client : might rename 'ApolloClient' so we can keep gql queries and mutates

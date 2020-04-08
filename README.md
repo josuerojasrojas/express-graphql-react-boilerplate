@@ -44,9 +44,10 @@ I didn't want to start a board for this just cause of lazyness.
 - [ ] add google oath
   - [ ] add modal for users
   - [x] client add google login
-  - [ ] add routes for login in client (react-router)
+  - [x] add routes for login in client (react-router)
   - [x] server add mutation for google token
-- [ ] refactor index.js for server / seperate files
+- [x] refactor index.js for server / seperate files
+- [ ] add 404 route to client
 - [ ] heroku setup
   - [ ] add start script for heroku
   - [ ] add build script for react on root package.json

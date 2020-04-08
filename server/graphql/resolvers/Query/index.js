@@ -8,9 +8,14 @@ function getGreeting(date) {
   else return "Evening";
 }
 
+// TODO: this should be getting the user from database
+function getUser(context) {
+  return { name: context.currentUser.name };
+}
+
 const Query = {
-  greeting: (_, __, context) =>
-    runIfAuthenticated(context, () => getGreeting(new Date())),
+  greeting: () => getGreeting(new Date()),
+  user: (_, __, context) => runIfAuthenticated(context, () => getUser(context)),
 };
 
 module.exports = Query;

@@ -43,9 +43,9 @@ I didn't want to start a board for this just cause of lazyness.
 - [x] add sequelize
 - [ ] add google oath
   - [ ] add modal for users
-  - [ ] client add google login
+  - [x] client add google login
   - [ ] add routes for login in client (react-router)
-  - [ ] server add query for google token
+  - [x] server add mutation for google token
 - [ ] refactor index.js for server / seperate files
 - [ ] heroku setup
   - [ ] add start script for heroku

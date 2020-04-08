@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import GoogleLogin from "react-google-login";
 import gql from "graphql-tag";
 import { useMutation } from "@apollo/react-hooks";
+import { UserContext } from "components/UserContextProvider";
+import { STORAGE_JWT } from "constants/index";
+import jwt_decode from "jwt-decode";
 
 const AuthGoogle = gql`
   mutation AuthGoogle($accessToken: String!) {
@@ -13,14 +16,18 @@ const AuthGoogle = gql`
 `;
 
 const GoogleLoginButton = () => {
-  const [authGoogle, { data }] = useMutation(AuthGoogle);
+  const { setUser } = useContext(UserContext);
+  const [authGoogle] = useMutation(AuthGoogle, {
+    onCompleted: (data) => {
+      const token = data.authGoogle.token;
+      localStorage.setItem(STORAGE_JWT, data.authGoogle.token);
+      setUser(jwt_decode(token));
+    },
+  });
 
   const responseGoogle = (response) => {
-    // console.log(response.accessToken);
     authGoogle({ variables: { accessToken: response.accessToken } });
   };
-
-  console.log("data", data);
 
   return (
     <GoogleLogin

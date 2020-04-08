@@ -12,11 +12,7 @@ const authGoogle = async (_, { accessToken }, { req, res }) => {
     if (data) {
       const name = `${data.profile.name.givenName} ${data.profile.name.familyName}`;
       return {
-        token: jwt.sign(
-          JSON.parse(JSON.stringify(name)),
-          process.env.JWT_SECRET,
-          { expiresIn: "1d" }
-        ),
+        token: jwt.sign({ name }, process.env.JWT_SECRET, { expiresIn: "1d" }),
         name: name,
       };
     }

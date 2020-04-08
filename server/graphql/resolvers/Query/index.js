@@ -1,3 +1,5 @@
+const { runIfAuthenticated } = require("../../utils");
+
 // example return greeting string
 function getGreeting(date) {
   const time = date.getHours() * 60 + date.getMinutes();
@@ -7,7 +9,8 @@ function getGreeting(date) {
 }
 
 const Query = {
-  greeting: () => getGreeting(new Date()),
+  greeting: (_, __, context) =>
+    runIfAuthenticated(context, () => getGreeting(new Date())),
 };
 
 module.exports = Query;

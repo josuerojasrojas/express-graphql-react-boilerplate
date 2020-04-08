@@ -53,3 +53,7 @@ I didn't want to start a board for this just cause of lazyness.
   - [ ] setup index in server to serve react build
 - [ ] add instruction for cloning
 - [ ] client : might rename 'ApolloClient' so we can keep gql queries and mutates
+
+### getting google oath api
+
+go to (google console)[https://console.developers.google.com]

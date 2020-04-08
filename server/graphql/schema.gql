@@ -1,0 +1,22 @@
+# -------------
+# Queries
+
+type Query {
+  greeting: String!
+}
+
+# -------------
+# Mutations
+
+type Mutation {
+  exampleMutation(input: String!): exampleMutationOutput!
+}
+
+# -------------
+# Rest of stuff
+
+type exampleMutationOutput {
+  key: String!
+  name: String!
+  input: String!
+}

@@ -1,5 +1,7 @@
-const express = require('express');
-const { ApolloServer, gql } = require('apollo-server-express');
+require("dotenv").config();
+const express = require("express");
+const { ApolloServer, gql } = require("apollo-server-express");
+const { db } = require("./db");
 
 const typeDefs = gql`
   type Query {
@@ -10,9 +12,9 @@ const typeDefs = gql`
 // example return greeting string
 function getGreeting(date) {
   const time = date.getHours() * 60 + date.getMinutes();
-  if(time > 299 && time < 660) return 'Morning';
-  else if(time > 660 && time < 1020) return 'Afternoon'
-  else return 'Evening'
+  if (time > 299 && time < 660) return "Morning";
+  else if (time > 660 && time < 1020) return "Afternoon";
+  else return "Evening";
 }
 
 const resolvers = {

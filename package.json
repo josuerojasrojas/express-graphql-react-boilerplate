@@ -8,7 +8,8 @@
     "prefix:client": "yarn workspace client",
     "prefix:server": "yarn workspace server",
     "start:client": "yarn prefix:client start",
-    "start:server": "yarn prefix:server start"
+    "start:server": "yarn prefix:server start-dev",
+    "start": "yarn prefix:server start"
   },
   "repository": {
     "type": "git",
@@ -17,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/josuerojasrojas/express-graphql-react-boilerplate/issues"
   },
-  "workspaces": ["client", "server"]
+  "workspaces": [
+    "client",
+    "server"
+  ]
 }

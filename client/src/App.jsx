@@ -8,9 +8,9 @@ import client from './ApolloClient'
 const App = () => {
   return (
     <ApolloProvider client={client}>
-    <div>
-      <QueryExample/>
-    </div>
+      <div>
+        <QueryExample/>
+      </div>
     </ApolloProvider>
   );
 }

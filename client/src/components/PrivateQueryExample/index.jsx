@@ -11,7 +11,9 @@ const GET_GREETING = gql`
 `;
 
 const PrivateQueryExample = () => {
-  const { loading, error, data } = useQuery(GET_GREETING);
+  const { loading, error, data } = useQuery(GET_GREETING, {
+    fetchPolicy: "network-only",
+  });
 
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;

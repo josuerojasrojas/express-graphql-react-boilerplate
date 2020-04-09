@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { UserContext } from "components/UserContextProvider";
+import AuthenticatedRoute from "components/AuthenticatedRoute";
 import Home from "./Home";
 import Login from "./Login";
 import ProtectedRoute from "./ProtectedRoute";
@@ -39,6 +41,8 @@ const FakeNav = () => {
 };
 
 const Routes = () => {
+  const { user } = useContext(UserContext);
+
   return (
     <Router>
       <FakeNav />
@@ -50,7 +54,9 @@ const Routes = () => {
           <Login />
         </Route>
         <Route exact path="/protectedroute">
-          <ProtectedRoute />
+          <AuthenticatedRoute redirectTo="/login" isAuthenticated={!!user}>
+            <ProtectedRoute />
+          </AuthenticatedRoute>
         </Route>
         <Route exact path="/protectedquery">
           <ProtectedRoute />

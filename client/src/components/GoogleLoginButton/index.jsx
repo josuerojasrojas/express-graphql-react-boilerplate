@@ -15,26 +15,33 @@ const AuthGoogle = gql`
   }
 `;
 
-const GoogleLoginButton = () => {
+const GoogleLoginButton = ({ onSuccessCallback, onFailureCallback }) => {
   const { setUser } = useContext(UserContext);
   const [authGoogle] = useMutation(AuthGoogle, {
     onCompleted: (data) => {
       const token = data.authGoogle.token;
       localStorage.setItem(STORAGE_JWT, data.authGoogle.token);
       setUser(jwt_decode(token));
+      onSuccessCallback && onSuccessCallback(data);
     },
+    // TODO: should also handle errors for mutation
   });
 
-  const responseGoogle = (response) => {
-    authGoogle({ variables: { accessToken: response.accessToken } });
+  const onSuccessGoogle = (res) => {
+    authGoogle({ variables: { accessToken: res.accessToken } });
+  };
+
+  const onErrorGoogle = (res) => {
+    console.log(res);
+    onFailureCallback && onFailureCallback(res);
   };
 
   return (
     <GoogleLogin
       clientId="520481995065-2kd38l4990787a6pnb1qvnhd0l5cr4g0.apps.googleusercontent.com"
       buttonText="Login"
-      onSuccess={responseGoogle}
-      onFailure={responseGoogle}
+      onSuccess={onSuccessGoogle}
+      onFailure={onErrorGoogle}
     />
   );
 };

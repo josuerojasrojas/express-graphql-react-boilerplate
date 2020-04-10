@@ -20,7 +20,7 @@ const GoogleLoginButton = ({ onSuccessCallback, onFailureCallback }) => {
   const [authGoogle] = useMutation(AuthGoogle, {
     onCompleted: (data) => {
       const token = data.authGoogle.token;
-      localStorage.setItem(STORAGE_JWT, data.authGoogle.token);
+      localStorage.setItem(STORAGE_JWT, token);
       setUser(jwt_decode(token));
       onSuccessCallback && onSuccessCallback(data);
     },

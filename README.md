@@ -47,7 +47,7 @@ I didn't want to start a board for this just cause of lazyness.
   - [x] add routes for login in client (react-router)
   - [x] server add mutation for google token
 - [x] refactor index.js for server / seperate files
-- [ ] add 404 route to client
+- [x] add 404 route to client
 - [ ] write proptypes for components
 - [ ] heroku setup
   - [ ] add start script for heroku

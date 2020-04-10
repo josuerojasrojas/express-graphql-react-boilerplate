@@ -6,6 +6,7 @@ import Home from "./Home";
 import Login from "./Login";
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
+import NoMatch from "./NoMatch";
 
 const FakeNav = () => {
   return (
@@ -63,6 +64,9 @@ const Routes = () => {
         </Route>
         <Route exact path="/publicroute">
           <PublicRoute />
+        </Route>
+        <Route path="*">
+          <NoMatch />
         </Route>
       </Switch>
     </Router>

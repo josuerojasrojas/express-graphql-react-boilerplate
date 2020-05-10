@@ -10,30 +10,45 @@ another boilerplate. mostly for personal use. express, graphql, react, sequelize
 
 ### Setup (TODO NEED TO WRITE THIS)
 
+#### Requirements
+
+- [Postgres](https://www.postgresql.org/download)
+- [Node](https://nodejs.org/en/)
+- [Yarn](https://yarnpkg.com)
+
+#### Clone and Install
+
 ```
-git clone ...
-cd ...
+git clone https://github.com/josuerojasrojas/express-graphql-react-boilerplate.git
+cd express-graphql-react-boilerplate;
 yarn install
 ```
 
-### Install
+#### Post Install
+
+setup .env variables
 
 ```
-yarn install
+cd server;
+cp .env.example .env
 ```
 
-### Start
+(TODO: should probably write about .env and where to get them)
 
-start server
+### Run
+
+Run client
+
+```
+yarn start:client
+```
+
+Run server on another terminal
 
 ```
 yarn start:server
 ```
 
-start client
-
-```
-yarn start:client
 ```
 
 ##### TODO:
@@ -59,3 +74,4 @@ I didn't want to start a board for this just cause of lazyness.
 ### getting google oath api
 
 go to (google console)[https://console.developers.google.com]
+```
